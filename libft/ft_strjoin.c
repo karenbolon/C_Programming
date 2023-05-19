@@ -6,7 +6,7 @@
 /*   By: kbolon <kbolon@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 13:48:31 by kbolon            #+#    #+#             */
-/*   Updated: 2023/05/16 09:36:24 by kbolon           ###   ########.fr       */
+/*   Updated: 2023/05/17 17:02:38 by kbolon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,23 +21,24 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	i;
 	size_t	j;
 
-	p = malloc (ft_strlen(s1) + ft_strlen(s2) + 1);
-	i = 0;
-	j = 0;
 	if (s1 == NULL || s2 == NULL)
 		return (NULL);
-	if (p == NULL)
-		return (NULL);
-	while ((i + j) < (ft_strlen(s1) + ft_strlen(s2) - 1))
+	p = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	i = 0;
+	j = 0;
+	if (!p)
+		return (0);
+	while (s1[i])
 	{
-		while (i < ft_strlen(s1) - 1)
-		{
-			p[i] = s1[i];
-			i++;
-		}	
-		while (j < ft_strlen(s2))
-			p[i++] = s2[j++];
+		p[i] = s1[i];
+		i++;
+	}	
+	while (s2[j])
+	{
+		p[i] = s2[j];
+		i++;
+		j++;
 	}
-	p[i + j] = '\0';
+	p[i] = '\0';
 	return (p);
 }
