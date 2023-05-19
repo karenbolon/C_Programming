@@ -6,77 +6,57 @@
 /*   By: kbolon <kbolon@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:59:46 by kbolon            #+#    #+#             */
-/*   Updated: 2023/05/16 15:17:07 by kbolon           ###   ########.fr       */
+/*   Updated: 2023/05/19 08:59:50 by kbolon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
 
-void	ft_putchar(char c)
-{
-	write (1, &c, 1);
-}
-
+/* long int has 8 bytes; short has 2 bytes; created an array with 10 bytes;
+Then created a while loop that removes the one digit and adds to array and then
+renives the leftover digits on left (past one digit) and enter back through
+loop*/
 void	ft_putnbr_fd(int n, int fd)
 {
-	size_t	i;
+	long	longnum;
+	short	shortnum;
+	char	arraynum[10];
 
-	i = 0;
-	while (n >= 0)
+	longnum = n;
+	shortnum = 0;
+	if (0 == n)
 	{
-		write (fd, &s[i], 1);
-		i++;
+		write (1, "0", 1);
+	}
+	if (n < 0)
+	{
+		longnum = longnum * -1;
+		write(1, "-", 1);
+	}
+	while (longnum % 10)
+	{
+		arraynum[shortnum++] = (longnum % 10) + '0';
+		longnum = longnum / 10;
+	}
+	while (shortnum >= 0)
+	{
+		write (fd, &arraynum[--shortnum], 1);
 	}
 }
-
-{
-	if (n == -2147483648)
-	{
-		ft_putchar('-');
-		ft_putchar('2');
-		ft_putnbr(147483648);
-	}
-	else
-	{
-		if (n < 0)
-		{
-			ft_putchar('-');
-			n = n * (-1);
-		}
-		if (n > 9)
-		{
-			ft_putnbr_fd(n / 10);
-			ft_putnbr(n % 10);
-		}
-		else
-			ft_putchar(n + '0');
-	}
-}
-
+/*
 int	main(void)
 {
-	ft_putnbr(-42);
+	ft_putnbr_fd(-42);
 	write (1, "\n", 1);
-	ft_putnbr(0);
+	ft_putnbr_fd(0);
 	write (1, "\n", 1);
-	ft_putnbr(42);
+	ft_putnbr_fd(42);
 	write (1, "\n", 1);
-	ft_putnbr(2147483647);
+	ft_putnbr_fd(2147483647);
 	write (1, "\n", 1);
-	ft_putnbr(-2147483648);
+	ft_putnbr_fd(-2147483648);
 	write (1, "\n", 1);
-	return (0);
-}
+}*/
 
-void	ft_putstr_fd(char *s, int fd)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-	{
-		write (fd, &s[i], 1);
-		i++;
-	}
-}
 
