@@ -6,14 +6,11 @@
 /*   By: kbolon <kbolon@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 13:48:31 by kbolon            #+#    #+#             */
-/*   Updated: 2023/05/17 17:02:38 by kbolon           ###   ########.fr       */
+/*   Updated: 2023/05/20 10:06:36 by kbolon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-//#include "ft_strlen.c"
-
-//size_t	ft_strlen(const char *str);
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
@@ -21,8 +18,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	i;
 	size_t	j;
 
-	if (s1 == NULL || s2 == NULL)
-		return (NULL);
+	if (s1 == 0 || s2 == 0)
+		return (0);
 	p = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	i = 0;
 	j = 0;

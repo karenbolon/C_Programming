@@ -6,7 +6,7 @@
 /*   By: kbolon <kbolon@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:17:15 by kbolon            #+#    #+#             */
-/*   Updated: 2023/05/19 08:53:00 by kbolon           ###   ########.fr       */
+/*   Updated: 2023/05/19 14:41:27 by kbolon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	ft_putnbr(int nb)
 		write (1, &arraynum[--shortnum], 1);
 	}
 }
-
+/*
 int	main(void)
 {
 	ft_putnbr(-42);
@@ -57,3 +57,4 @@ int	main(void)
 	ft_putnbr(-2147483648);
 	write (1, "\n", 1);
 }
+*/

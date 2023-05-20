@@ -6,57 +6,29 @@
 /*   By: kbolon <kbolon@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:59:46 by kbolon            #+#    #+#             */
-/*   Updated: 2023/05/19 08:59:50 by kbolon           ###   ########.fr       */
+/*   Updated: 2023/05/20 10:25:04 by kbolon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
 
-/* long int has 8 bytes; short has 2 bytes; created an array with 10 bytes;
-Then created a while loop that removes the one digit and adds to array and then
-renives the leftover digits on left (past one digit) and enter back through
-loop*/
-void	ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_fd(int nu, int fd)
 {
-	long	longnum;
-	short	shortnum;
-	char	arraynum[10];
+	long int	n;
 
-	longnum = n;
-	shortnum = 0;
-	if (0 == n)
-	{
-		write (1, "0", 1);
-	}
+	n = nu;
 	if (n < 0)
 	{
-		longnum = longnum * -1;
-		write(1, "-", 1);
+		ft_putchar_fd('-', fd);
+		n = n * (-1);
 	}
-	while (longnum % 10)
+	if (n < 10)
 	{
-		arraynum[shortnum++] = (longnum % 10) + '0';
-		longnum = longnum / 10;
+		ft_putchar_fd(n + '0', fd);
 	}
-	while (shortnum >= 0)
+	else
 	{
-		write (fd, &arraynum[--shortnum], 1);
+		ft_putnbr_fd(n / 10, fd);
+		ft_putchar_fd(n % 10 + '0', fd);
 	}
 }
-/*
-int	main(void)
-{
-	ft_putnbr_fd(-42);
-	write (1, "\n", 1);
-	ft_putnbr_fd(0);
-	write (1, "\n", 1);
-	ft_putnbr_fd(42);
-	write (1, "\n", 1);
-	ft_putnbr_fd(2147483647);
-	write (1, "\n", 1);
-	ft_putnbr_fd(-2147483648);
-	write (1, "\n", 1);
-}*/
-
-

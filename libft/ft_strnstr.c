@@ -6,34 +6,34 @@
 /*   By: kbolon <kbolon@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 16:22:03 by kbolon            #+#    #+#             */
-/*   Updated: 2023/05/12 16:06:30 by kbolon           ###   ########.fr       */
+/*   Updated: 2023/05/20 09:57:38 by kbolon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *big, const char *little, size_t len)
+char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 {
 	size_t	i;
 	size_t	j;
 
 	i = 0;
-	j = 0;
-	if (little == NULL || len == 0)
-		return (NULL);
-	if (little[j] == '\0')
-		return ((char *) big);
-	while (big[i] != '\0' && i < len)
+	if (!str && !len)
+		return (0);
+	if (to_find[0] == '\0' || to_find == str)
+		return ((char *)str);
+	while (str[i] != '\0')
 	{
-		if (big[i] == little[0])
+		j = 0;
+		while (str[i + j] == to_find[j] && (i + j) < len)
 		{
-			while (little[j] != '\0' && big[i + j] == little[j] \
-			&& (i + j) < len)
-				j++;
+			if (str[i + j] == '\0' && to_find[j] == '\0')
+				return ((char *)&str[i]);
+			j++;
 		}
-		if (little[j] == '\0')
-			return ((char *) &big[i]);
+		if (to_find[j] == '\0')
+			return ((char *)(str + i));
 		i++;
 	}
-	return (NULL);
+	return (0);
 }
