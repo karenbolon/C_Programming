@@ -6,19 +6,11 @@
 /*   By: kbolon <kbolon@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 16:24:14 by kbolon            #+#    #+#             */
-/*   Updated: 2023/05/20 10:20:44 by kbolon           ###   ########.fr       */
+/*   Updated: 2023/05/20 15:16:31 by kbolon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-/*int ft_isspace(int c)
-{
-	if (c >= 9 && c <= 13 || c == 32)
-		return (1);
-	else
-		return (0);
-}*/
 
 int	ft_atoi(const char *str)
 {
