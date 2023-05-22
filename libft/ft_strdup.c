@@ -6,7 +6,7 @@
 /*   By: kbolon <kbolon@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:42:25 by kbolon            #+#    #+#             */
-/*   Updated: 2023/05/12 16:51:27 by kbolon           ###   ########.fr       */
+/*   Updated: 2023/05/22 16:56:04 by kbolon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ char	*ft_strdup(const char *s)
 	i = 0;
 	j = ft_strlen(s);
 	p = malloc (j + 1);
-	if (p == NULL)
-		return (NULL);
+	if (p == 0)
+		return (0);
 	while (i < j)
 	{
 		p[i] = s[i];

@@ -6,7 +6,7 @@
 /*   By: kbolon <kbolon@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 09:31:54 by kbolon            #+#    #+#             */
-/*   Updated: 2023/05/16 09:32:12 by kbolon           ###   ########.fr       */
+/*   Updated: 2023/05/22 18:38:32 by kbolon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	if (i == n)
 		return (0);
 	else
-		return ((unsigned char) s1[i] - s2[i]);
+		return ((unsigned char) s1[i] - (unsigned char) s2[i]);
 }

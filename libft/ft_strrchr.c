@@ -6,7 +6,7 @@
 /*   By: kbolon <kbolon@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 16:14:24 by kbolon            #+#    #+#             */
-/*   Updated: 2023/05/16 09:39:56 by kbolon           ###   ########.fr       */
+/*   Updated: 2023/05/22 15:51:14 by kbolon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ char	*ft_strrchr(const char *s, int c)
 			i--;
 		if (s[i] == (char)c)
 			return ((char *)&s[i]);
-		else
-			return (NULL);
 	}
-	return (NULL);
+	return (0);
 }	

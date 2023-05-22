@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd_main.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbolon <kbolon@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/10 14:52:48 by kbolon            #+#    #+#             */
-/*   Updated: 2023/05/22 15:16:08 by kbolon           ###   ########.fr       */
+/*   Created: 2023/05/22 13:56:11 by kbolon            #+#    #+#             */
+/*   Updated: 2023/05/22 13:59:54 by kbolon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_putnbr_fd.c"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void	ft_putnbr_fd(int nu, int fd);
+
+int	main(void)
 {
-	const unsigned char	*p;
-	unsigned char		val;
-	size_t				i;
-
-	val = (unsigned char) c;
-	p = s;
-	i = 0;
-	while (i < n)
-	{
-		if (*p == val)
-			return ((void *)p);
-		i++;
-		p++;
-	}
+	ft_putnbr_fd(-42, 1);
+	write (1, "\n", 1);
+	ft_putnbr_fd(0, 1);
+	write (1, "\n", 1);
+	ft_putnbr_fd(42, 1);
+	write (1, "\n", 1);
+	ft_putnbr_fd(2147483647, 1);
+	write (1, "\n", 1);
+	ft_putnbr_fd(-2147483648, 1);
+	write (1, "\n", 1);
 	return (0);
 }
