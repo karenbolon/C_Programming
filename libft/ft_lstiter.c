@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd_main.c                                :+:      :+:    :+:   */
+/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbolon <kbolon@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/22 13:56:11 by kbolon            #+#    #+#             */
-/*   Updated: 2023/05/22 13:59:54 by kbolon           ###   ########.fr       */
+/*   Created: 2023/05/23 11:42:12 by kbolon            #+#    #+#             */
+/*   Updated: 2023/05/23 12:02:59 by kbolon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_putnbr_fd.c"
+#include "libft.h"
 
-void	ft_putnbr_fd(int nu, int fd);
-
-int	main(void)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	ft_putnbr_fd(-42, 1);
-	write (1, "\n", 1);
-	ft_putnbr_fd(0, 1);
-	write (1, "\n", 1);
-	ft_putnbr_fd(42, 1);
-	write (1, "\n", 1);
-	ft_putnbr_fd(2147483647, 1);
-	write (1, "\n", 1);
-	ft_putnbr_fd(-2147483648, 1);
-	write (1, "\n", 1);
-	return (0);
+	t_list	*list_ptr;
+
+	if (!lst)
+		return ;
+	list_ptr = lst;
+	while (list_ptr != NULL)
+	{
+		(*f)(list_ptr->content);
+		list_ptr = list_ptr->next;
+	}
 }

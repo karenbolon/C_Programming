@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd_main.c                               :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbolon <kbolon@42.fr>                      +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/16 12:54:58 by kbolon            #+#    #+#             */
-/*   Updated: 2023/05/22 14:19:20 by kbolon           ###   ########.fr       */
+/*                                               +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/23 10:47:25 by kbolon            #+#    #+#             */
+/*   Updated: 2023/05/23 10:47:25 by kbolon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_putendl_fd.c"
+#include "libft.h"
 
-void ft_putendl_fd(char *s, int fd);
-
-int	main (void)
+t_list	*ft_lstlast(t_list *lst)
 {
-//	char	*s = "This is a string!";
-	
-	ft_putendl_fd("lorem ipsum dolor sit amet", 2);
-	return(0);
+	if (!lst)
+		return (NULL);
+	while (lst->next != NULL)
+		lst = lst -> next;
+	return (lst);
 }

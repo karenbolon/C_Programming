@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd_main.c                               :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbolon <kbolon@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/16 11:52:18 by kbolon            #+#    #+#             */
-/*   Updated: 2023/05/16 11:52:48 by kbolon           ###   ########.fr       */
+/*   Created: 2023/05/23 11:35:04 by kbolon            #+#    #+#             */
+/*   Updated: 2023/05/23 12:06:55 by kbolon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_putchar_fd.c"
+#include "libft.h"
 
-void ft_putchar_fd(char c, int fd);
-
-int main(void)
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	char character = 'A';
-	int fileDescriptor = STDOUT_FILENO;  // Use STDOUT_FILENO for standard output (console)
+	t_list	*node;
 
-	ft_putchar_fd(character, fileDescriptor);
-
-	return 0;
+	if (!lst)
+		return ;
+	while (*lst)
+	{
+		node = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = node;
+	}
 }

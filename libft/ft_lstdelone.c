@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd_main.c                                :+:      :+:    :+:   */
+/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbolon <kbolon@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/16 12:00:43 by kbolon            #+#    #+#             */
-/*   Updated: 2023/05/16 12:01:11 by kbolon           ###   ########.fr       */
+/*   Created: 2023/05/23 11:24:54 by kbolon            #+#    #+#             */
+/*   Updated: 2023/05/23 12:03:30 by kbolon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_putstr_fd.c"
+#include "libft.h"
 
-void ft_putstr_fd(char *s, int fd);
-
-int main(void)
+void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	char *message = "This works!";
-	int fileDescriptor = STDOUT_FILENO;  // Use STDOUT_FILENO for standard output (console)
-
-	ft_putstr_fd(message, fileDescriptor);
-
-	return 0;
+	if (!lst)
+		return ;
+	(*del)(lst->content);
+	free(lst);
 }
