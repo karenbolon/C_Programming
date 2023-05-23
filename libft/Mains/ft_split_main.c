@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_split_main.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbolon <kbolon@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/10 14:52:48 by kbolon            #+#    #+#             */
-/*   Updated: 2023/05/22 15:16:08 by kbolon           ###   ########.fr       */
+/*   Created: 2023/05/22 12:22:37 by kbolon            #+#    #+#             */
+/*   Updated: 2023/05/22 12:23:15 by kbolon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <string.h>
+#include <stdio.h>
+#include "ft_split.c"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+char **ft_split(char const *s, char c);
+
+int main()
 {
-	const unsigned char	*p;
-	unsigned char		val;
-	size_t				i;
+    char **words = ft_split("This is a string.", ' ');
 
-	val = (unsigned char) c;
-	p = s;
-	i = 0;
-	while (i < n)
-	{
-		if (*p == val)
-			return ((void *)p);
-		i++;
-		p++;
-	}
-	return (0);
+    if (words)
+    {
+        int i = 0;
+        while (words[i] != (0))
+        {
+            printf("%s\n", words[i]);
+            free(words[i]);
+            i++;
+        }
+        free(words);
+    }
+
+    return (0);
 }

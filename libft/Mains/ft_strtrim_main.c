@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim_main.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbolon <kbolon@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/10 14:52:48 by kbolon            #+#    #+#             */
-/*   Updated: 2023/05/22 15:16:08 by kbolon           ###   ########.fr       */
+/*   Created: 2023/05/15 15:31:06 by kbolon            #+#    #+#             */
+/*   Updated: 2023/05/15 15:32:06 by kbolon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "ft_strtrim.c"
+#include <stdio.h>
 
-void	*ft_memchr(const void *s, int c, size_t n)
+
+
+
+char	*ft_strtrim(char const *s1, char const *set);
+
+int main(void)
 {
-	const unsigned char	*p;
-	unsigned char		val;
-	size_t				i;
+    const char *s1 = "abcdefgab";
+    const char *set = "ab";
+    char *result = ft_strtrim(s1, set);
 
-	val = (unsigned char) c;
-	p = s;
-	i = 0;
-	while (i < n)
-	{
-		if (*p == val)
-			return ((void *)p);
-		i++;
-		p++;
-	}
-	return (0);
+    printf("Trimmed string: %s\n", result);
+    free(result); // Free the allocated memoru
+    return (0);
 }

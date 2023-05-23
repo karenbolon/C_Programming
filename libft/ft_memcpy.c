@@ -6,7 +6,7 @@
 /*   By: kbolon <kbolon@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:00:30 by kbolon            #+#    #+#             */
-/*   Updated: 2023/05/12 14:31:32 by kbolon           ###   ########.fr       */
+/*   Updated: 2023/05/22 15:15:50 by kbolon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	src_char = (char *)src;
 	dest_char = (char *)dest;
 	if (dest_char == 0 && src_char == 0)
-		return (NULL);
+		return (0);
 	if (dest_char != src_char || n != 0)
 	{
 		while (n > 0)

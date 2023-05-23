@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbolon <kbolon@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/10 14:52:48 by kbolon            #+#    #+#             */
-/*   Updated: 2023/05/22 15:16:08 by kbolon           ###   ########.fr       */
+/*   Created: 2023/05/22 12:53:12 by kbolon            #+#    #+#             */
+/*   Updated: 2023/05/22 14:48:46 by kbolon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
-void	*ft_memchr(const void *s, int c, size_t n)
+typedef struct s_list
 {
-	const unsigned char	*p;
-	unsigned char		val;
-	size_t				i;
+	void			*content;
+	struct s_list	*next;
+}					t_list;
+ft_lstadd_front
+Prototype void ft_lstadd_f
+t_list	*ft_lstnew(void *content)
+{
+	t_list	*new_node;
 
-	val = (unsigned char) c;
-	p = s;
-	i = 0;
-	while (i < n)
-	{
-		if (*p == val)
-			return ((void *)p);
-		i++;
-		p++;
-	}
-	return (0);
+	new_node = (t_list *) malloc (sizeof(t_list));
+	if (new_node == 0)
+		return (0);
+	new_node->content = content;
+	new_node->next = 0;
+	return (new_node);
 }

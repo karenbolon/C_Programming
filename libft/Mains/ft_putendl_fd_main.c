@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd_main.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbolon <kbolon@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/10 14:52:48 by kbolon            #+#    #+#             */
-/*   Updated: 2023/05/22 15:16:08 by kbolon           ###   ########.fr       */
+/*   Created: 2023/05/16 12:54:58 by kbolon            #+#    #+#             */
+/*   Updated: 2023/05/22 14:19:20 by kbolon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_putendl_fd.c"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void ft_putendl_fd(char *s, int fd);
+
+int	main (void)
 {
-	const unsigned char	*p;
-	unsigned char		val;
-	size_t				i;
-
-	val = (unsigned char) c;
-	p = s;
-	i = 0;
-	while (i < n)
-	{
-		if (*p == val)
-			return ((void *)p);
-		i++;
-		p++;
-	}
-	return (0);
+//	char	*s = "This is a string!";
+	
+	ft_putendl_fd("lorem ipsum dolor sit amet", 2);
+	return(0);
 }
