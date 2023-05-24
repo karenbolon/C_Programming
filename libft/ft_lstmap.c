@@ -14,22 +14,30 @@
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
+	t_list	*first;
 	t_list	*new;
-	t_list	*node;
 
-	if (!f || !lst)
-		return (NULL);
-	new = NULL;
+	if (!f || !del)
+		return (0);
+	first = 0;
 	while (lst)
 	{
-		node = ft_lstnew(f(lst->content));
-		if (!node)
+		new = ft_lstnew((*f)(lst->content));
+		if (!new)
 		{
-			ft_lstclear(&node, (*del));
-			return (NULL);
+			while (first)
+			{
+				new = first->next;
+				(*del)(first->content);
+				free(first);
+				first = new;
+			}
+			lst = 0;
+			return (0);
 		}
-		ft_lstadd_back(&new, node);
+		ft_lstadd_back(&first, new);
 		lst = lst->next;
 	}
-	return (new);
+	return (first);
 }
+
